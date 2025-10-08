@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+
+    border-radius: 24px;
+    margin: 20px;
+    padding: 24px 36px;
+
+    background-color: #E2E2E2;
+}
+
+.image {
+    flex: 1 0 60%;
+}
+
+.tabs {
+    width: 100%;
+
+    margin-top: 60px;
+}
+
+.tab {
+    margin-top: 30px;
+}
