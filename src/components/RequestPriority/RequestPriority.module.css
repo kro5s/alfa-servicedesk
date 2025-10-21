@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.priorityIcon.low rect:nth-child(1),
+.priorityIcon.medium rect:nth-child(1),
+.priorityIcon.high rect:nth-child(1){
+    fill: #909090;
+}
+
+.priorityIcon.medium rect:nth-child(2),
+.priorityIcon.high rect:nth-child(2){
+    fill: #909090;
+}
+
+.priorityIcon.high rect:nth-child(3) {
+    fill: #909090;
+}
+
+.priority {
+    font-size: 0.9rem;
+    opacity: 60%;
+}

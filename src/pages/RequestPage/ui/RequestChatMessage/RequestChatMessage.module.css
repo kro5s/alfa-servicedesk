@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    column-gap: 16px;
+    align-items: start;
+}
+
+.container.reverted {
+    flex-direction: row-reverse;
+}
+
+.comment {
+    background-color: #e3e3e3;
+}
+
+.comment.reverted {
+    border-top-left-radius: var(--border-radius-20);
+    border-top-right-radius: var(--border-radius-4);
+}
+
+.avatar {
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}

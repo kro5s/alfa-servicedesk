@@ -1,12 +1,19 @@
 import { Tab, Tabs } from "@alfalab/core-components/tabs";
 import LoginForm from "../../components/Forms/ReadyMadeForms/LoginForm/LoginForm.tsx";
 import { useState } from "react";
-import RegistrationForm from "../../components/Forms/ReadyMadeForms/RegistrationForm/RegistrationForm.tsx";
 import styles from "./LoginPage.module.css";
 import illustration from "../../assets/illustration.svg";
+import { Button } from "@alfalab/core-components/button";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [selectedTab, setSelectedTab] = useState("login");
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    localStorage.setItem("accessToken", "testToken");
+    navigate("/new-request");
+  };
 
   return (
     <div className={styles.container}>
@@ -19,11 +26,21 @@ function LoginPage() {
         selectedId={selectedTab}
         onChange={(_, { selectedId }) => setSelectedTab(selectedId as string)}
       >
-        <Tab id={"login"} title={"Логин"} className={styles.tab}>
+        <Tab
+          id={"login"}
+          title={"Корпоративный аккаунт"}
+          className={styles.tab}
+        >
           <LoginForm />
         </Tab>
-        <Tab id={"registrations"} title={"Регистрация"} className={styles.tab}>
-          <RegistrationForm />
+        <Tab id={"sso"} title={"SSO"} className={styles.tab}>
+          <Button
+            view={"accent"}
+            style={{ width: "100%" }}
+            onClick={handleLogin}
+          >
+            Авторизоваться
+          </Button>
         </Tab>
       </Tabs>
     </div>

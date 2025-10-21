@@ -1,0 +1,45 @@
+.formGrid {
+    display: grid;
+    grid-template-areas:
+            "title location"
+            "category subcategory"
+            "priority ."
+            "content content"
+            "files .";
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 32px;
+}
+
+.title {
+    grid-area: title;
+}
+
+.priority {
+    grid-area: priority;
+}
+
+.category {
+    grid-area: category;
+}
+
+.subcategory {
+    grid-area: subcategory;
+}
+
+.location {
+    grid-area: location;
+}
+
+.content {
+    grid-area: content;
+}
+
+.files {
+    grid-area: files;
+}
+
+.submitButtonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}

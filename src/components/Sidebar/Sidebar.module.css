@@ -1,0 +1,30 @@
+.container {
+    width: 5vw;
+    flex-shrink: 0;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.logout {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+.logout:hover svg path {
+    transition: stroke 0.3s;
+}
+
+.logout:hover svg path {
+    stroke: #ef3124;
+}

@@ -1,9 +1,12 @@
 .container {
+    height: 87.5svh;
+    overflow: hidden;
     display: flex;
 
     border-radius: 24px;
-    margin: 20px;
     padding: 24px 36px;
+
+    margin: 3svh 2vw 0;
 
     background-color: #E2E2E2;
 }

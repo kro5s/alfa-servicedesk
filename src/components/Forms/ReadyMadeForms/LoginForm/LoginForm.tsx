@@ -6,14 +6,21 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginFormSchema } from "./schema.ts";
 import type { LoginFormData } from "./types.ts";
 import styles from "./LoginForm.module.css";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
+  const navigate = useNavigate();
   const { handleSubmit, control } = useForm<LoginFormData>({
     resolver: yupResolver(loginFormSchema),
     mode: "onBlur",
   });
 
-  const onSubmit: SubmitHandler<LoginFormData> = (data) => console.log(data);
+  const handleLogin = () => {
+    localStorage.setItem("accessToken", "testToken");
+    navigate("/new-request");
+  };
+
+  const onSubmit: SubmitHandler<LoginFormData> = () => handleLogin();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>

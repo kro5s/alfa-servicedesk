@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.name {
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.email {
+    color: rgba(0, 0, 0, 0.6);
+}

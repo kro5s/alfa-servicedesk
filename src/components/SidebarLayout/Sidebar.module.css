@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+
+    min-height: 100svh;
+}
+
+.main {
+    background-color: #F9F9F9;
+    flex-grow: 1;
+}
