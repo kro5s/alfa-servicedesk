@@ -5,13 +5,21 @@ import styles from "./LoginPage.module.css";
 import illustration from "../../assets/illustration.svg";
 import { Button } from "@alfalab/core-components/button";
 import { useNavigate } from "react-router-dom";
+import { RadioGroup } from "@alfalab/core-components/radio-group";
+import { Radio } from "@alfalab/core-components/radio";
+import type { Role } from "../../types/types.ts";
+
+
 
 function LoginPage() {
   const [selectedTab, setSelectedTab] = useState("login");
+  const [role, setRole] = useState<Role>("user");
+
   const navigate = useNavigate();
 
   const handleLogin = () => {
     localStorage.setItem("accessToken", "testToken");
+    localStorage.setItem("role", role);
     navigate("/new-request");
   };
 
@@ -21,28 +29,44 @@ function LoginPage() {
         <img src={illustration} alt="Illustration" />
       </div>
 
-      <Tabs
-        className={styles.tabs}
-        selectedId={selectedTab}
-        onChange={(_, { selectedId }) => setSelectedTab(selectedId as string)}
-      >
-        <Tab
-          id={"login"}
-          title={"Корпоративный аккаунт"}
-          className={styles.tab}
+      <div className={styles.tabsContainer}>
+        <Tabs
+          selectedId={selectedTab}
+          onChange={(_, { selectedId }) => setSelectedTab(selectedId as string)}
         >
-          <LoginForm />
-        </Tab>
-        <Tab id={"sso"} title={"SSO"} className={styles.tab}>
-          <Button
-            view={"accent"}
-            style={{ width: "100%" }}
-            onClick={handleLogin}
+          <Tab
+            id={"login"}
+            title={"Корпоративный аккаунт"}
+            className={styles.tab}
           >
-            Авторизоваться
-          </Button>
-        </Tab>
-      </Tabs>
+            <LoginForm handleLogin={handleLogin} />
+          </Tab>
+          <Tab id={"sso"} title={"SSO"} className={styles.tab}>
+            <Button
+              view={"accent"}
+              style={{ width: "100%" }}
+              onClick={handleLogin}
+            >
+              Авторизоваться
+            </Button>
+          </Tab>
+        </Tabs>
+
+        <div
+          style={{
+            marginTop: "20px",
+          }}
+        >
+          <RadioGroup
+            value={role}
+            onChange={(_, payload) => setRole(payload.value as Role)}
+          >
+            <Radio label="[DEV] Войти как пользователь" value="user" />
+            <Radio label="[DEV] Войти как исполнитель" value="executor" />
+            <Radio label="[DEV] Войти как сотрудник АХО" value="aho" />
+          </RadioGroup>
+        </div>
+      </div>
     </div>
   );
 }

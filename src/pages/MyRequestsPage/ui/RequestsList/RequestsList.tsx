@@ -5,7 +5,7 @@ import styles from "./RequestsList.module.css";
 import RequestCard from "../../../../components/RequestCard/RequestCard.tsx";
 import type { RequestPreview } from "../../../../types/types.ts";
 
-function RequestsList() {
+function RequestsList({ withMeta, isShortened }: { withMeta?: boolean, isShortened?: boolean }) {
   const { data, isLoading, isError } = useQuery<RequestPreview[]>({
     queryKey: ["requests"],
     queryFn: async () => {
@@ -30,7 +30,7 @@ function RequestsList() {
   return (
     <div className={styles.list}>
       {(data || []).map((request) => (
-        <RequestCard key={request.id} {...request} />
+        <RequestCard key={request.id} {...request} withMeta={withMeta} isShortened={isShortened} />
       ))}
     </div>
   );

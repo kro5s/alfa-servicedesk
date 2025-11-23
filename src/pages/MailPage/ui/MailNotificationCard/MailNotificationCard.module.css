@@ -1,0 +1,22 @@
+.container {
+    border-radius: 12px;
+    padding: 20px 36px;
+    background-color: #F3F3F3;
+
+    transition: all 0.3s;
+}
+
+.top {
+    display: flex;
+    column-gap: 10px;
+}
+
+.title {
+    font-size: 24px;
+    transform: translateY(-4px);
+}
+
+.description {
+    margin-top: 16px;
+    color: rgba(0, 0, 0, 0.4);
+}

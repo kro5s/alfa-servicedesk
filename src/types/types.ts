@@ -1,3 +1,5 @@
+export type Role = "user" | "executor" | "aho"
+
 export type RequestPriorityType = "high" | "medium" | "low";
 export type RequestStatusType = "initial" | "in_progress" | "done";
 

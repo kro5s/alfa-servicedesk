@@ -39,6 +39,12 @@
 
 .mainInfo {
     display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.infoLabels {
+    display: flex;
     gap: 20px;
 }
 
@@ -50,6 +56,10 @@
     padding: 6px 10px;
 
     font-size: 0.9rem;
+}
+
+.reviewButton {
+    border-radius: 8px;
 }
 
 .labelTitle {

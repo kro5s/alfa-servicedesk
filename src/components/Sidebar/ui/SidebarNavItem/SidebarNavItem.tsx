@@ -8,12 +8,14 @@ function SidebarNavItem({
   title,
   link,
   Icon,
+  isVisible = true
 }: {
   title: string;
   link: string;
   Icon: FC;
+  isVisible?: boolean;
 }) {
-  return (
+  return isVisible ? (
     <Tooltip content={title} position={"right"} onOpenDelay={600}>
       <NavLink
         to={link}
@@ -26,7 +28,7 @@ function SidebarNavItem({
         <Icon />
       </NavLink>
     </Tooltip>
-  );
+  ) : null;
 }
 
 export default SidebarNavItem;

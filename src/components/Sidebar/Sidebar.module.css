@@ -13,18 +13,32 @@
     flex-direction: column;
 }
 
-.logout {
+.bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottomItem {
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
+    height: 50px;
 }
 
-.logout:hover svg path {
+.logout svg path {
     transition: stroke 0.3s;
 }
 
 .logout:hover svg path {
     stroke: #ef3124;
+}
+
+.mail svg path {
+    transition: fill 0.3s;
+}
+
+.mail:hover svg path {
+    fill: #ef3124;
 }

@@ -6,6 +6,8 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage.tsx";
 import NewRequestPage from "./pages/NewRequestPage/NewRequestPage.tsx";
 import MyRequestsPage from "./pages/MyRequestsPage/MyRequestsPage.tsx";
 import RequestPage from "./pages/RequestPage/RequestPage.tsx";
+import MailPage from "./pages/MailPage/MailPage.tsx";
+import ArchivePage from "./pages/ArchivePage/ArchivePage.tsx";
 
 function App() {
   return (
@@ -18,9 +20,16 @@ function App() {
           <Route path={"/new-request"} element={<NewRequestPage />} />
           <Route path={"/requests"} element={<MyRequestsPage />} />
           <Route path={"/requests/:id"} element={<RequestPage />} />
-          <Route path={"/*"} element={<Navigate to={"/new-request"} />} />
+          <Route path={"/mail"} element={<MailPage />} />
         </Route>
       </Route>
+      <Route element={<ProtectedLayout roles={['executor', 'aho']} />}>
+        <Route element={<SidebarLayout />}>
+          <Route path={"/archive"} element={<ArchivePage />} />
+        </Route>
+      </Route>
+
+      <Route path={"/*"} element={<Navigate to={"/new-request"} />} />
     </Routes>
   );
 }

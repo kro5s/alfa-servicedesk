@@ -18,6 +18,10 @@
     margin-bottom: 20px;
 }
 
+.container.shortened .header {
+    margin-bottom: 0;
+}
+
 .headerTitle {
     display: flex;
     align-items: center;
@@ -44,4 +48,12 @@
 .timestamp {
     margin-top: 20px;
     opacity: 30%;
+}
+
+.meta {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 0.6);
 }
